@@ -87,7 +87,7 @@ class HomeControllers extends BaseControllers
         exit;
     }
 
-
+//buhfeheuhfuehfue
 
     public function destroy($params)
     {
