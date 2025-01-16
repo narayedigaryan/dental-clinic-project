@@ -1,0 +1,17 @@
+{
+ "autoload": {
+   "psr-4": {
+     "core\\": "core/",
+     "App\\": "app/"
+   }
+ },
+  "require": {
+    "php": ">=8.0",
+  "fortawesome/font-awesome": "*",
+  "symfony/var-dumper": "*",
+  "vlucas/valitron": "^1.4",
+  "illuminate/database": "^11.36",
+  "filp/whoops": "^2.16",
+  "phpmailer/phpmailer": "^6.9"
+  }
+}

@@ -1,0 +1,8 @@
+RewriteEngine On
+
+# Skip rewriting for files and directories that exist
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+
+# Redirect everything else to the public directory
+RewriteRule ^(.*)$ public/$1 [L]
