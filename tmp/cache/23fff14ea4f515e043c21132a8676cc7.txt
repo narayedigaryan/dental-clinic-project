@@ -1,4 +1,5 @@
-a:2:{s:4:"data";s:1221:"<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+a:2:{s:4:"data";s:2786:"
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
         <a class="navbar-brand" href="site.php">Dental<span>Care</span></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -7,12 +8,55 @@ a:2:{s:4:"data";s:1221:"<nav class="navbar navbar-expand-lg navbar-dark ftco_nav
 
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active"><a href="index.html" class="nav-link">Գլխավոր Էջ</a></li>
-                <li class="nav-item"><a href="about.php" class="nav-link">Մեր մասին</a></li>
-                <li class="nav-item"><a href="services.php" class="nav-link">Ծառայությունների ցանկը</a></li>
-                <li class="nav-item"><a href="works.php" class="nav-link">Մեր գործերից</a></li>
-                <li class="nav-item"><a href="http://localhost/dental_clinic_mushegh/send_mail" class="nav-link">Կապ մեզ հետ</a></li>
+                <li class="nav-item ">
+                    <a href="http://localhost/dental_clinic_mushegh/site" class="nav-link">Գլխավոր Էջ</a>
+                </li>
+                <li class="nav-item ">
+
+                    <a href="http://localhost/dental_clinic_mushegh/about" class="nav-link">Մեր մասին</a>
+                </li>
+                <li class="nav-item ">
+                    <a href="http://localhost/dental_clinic_mushegh/services" class="nav-link">Ծառայություններ</a>
+                </li>
+                <li class="nav-item active">
+                    <a href="http://localhost/dental_clinic_mushegh/our_works" class="nav-link">Մեր գործերից</a>
+                </li>
+                <li class="nav-item ">
+                    <a href="http://localhost/dental_clinic_mushegh/send_mail" class="nav-link">Կապ մեզ հետ</a>
+                </li>
             </ul>
         </div>
     </div>
-</nav>";s:8:"end_time";i:1737013378;}
+</nav>
+
+<style>
+
+    .navbar-nav .nav-item .nav-link {
+        color: white !important;
+    }
+
+
+    .navbar-nav .nav-item.active .nav-link {
+        color: #007bff !important; /* Blue color for active item */
+        font-weight: bold;
+    }
+</style>
+<!--<script>-->
+<!--    document.addEventListener("DOMContentLoaded", function () {-->
+<!--        let currentPath = window.location.pathname; // Get current page path-->
+<!--        let navLinks = document.querySelectorAll(".navbar-nav .nav-item");-->
+<!---->
+<!--        navLinks.forEach(function (navItem) {-->
+<!--            let link = navItem.querySelector("a");-->
+<!--            if (link && link.getAttribute("href") === currentPath) {-->
+<!--                navItem.classList.add("active"); // Add active class immediately-->
+<!--            }-->
+<!---->
+<!--            // Add click event to set active instantly-->
+<!--            link.addEventListener("click", function () {-->
+<!--                navLinks.forEach(item => item.classList.remove("active")); // Remove previous active-->
+<!--                navItem.classList.add("active"); // Add to clicked item-->
+<!--            });-->
+<!--        });-->
+<!--    });-->
+<!--</script>-->";s:8:"end_time";i:1739902462;}

@@ -23,19 +23,15 @@
             href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
             rel="stylesheet">
 
-    <!-- Custom styles for this template-->
     <link href="public/assets111/css/sb-admin-2.min.css" rel="stylesheet">
 </head>
 <body>
 <body id="page-top">
 
-<!-- Page Wrapper -->
 <div id="wrapper" class="d-flex">
 
-    <!-- Sidebar -->
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-        <!-- Sidebar - Brand -->
         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/app/Views/admin/admin.php">
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-laugh-wink"></i>
@@ -43,14 +39,23 @@
             <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
         </a>
 
-        <!-- Divider -->
         <hr class="sidebar-divider my-0">
 
-        <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-            <a class="nav-link" href="<?=base_url('/admin')?>">
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+               aria-expanded="true" aria-controls="collapseUtilities">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>Dashboard</span></a>
+                <span>Գրանցումներ</span>
+            </a>
+
+            <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                 data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded " style="padding-left:0">
+                    <a class="collapse-item" href="<?=base_url('/add_patient')?>">Ավելացնել հաճախորդ</a>
+                    <a class="collapse-item" href="<?=base_url('/search_patient')?>">Գտնել հաճախորդին</a>
+                </div>
+            </div>
         </li>
         <li class="nav-item active">
             <a class="nav-link" href="<?=base_url('/table_admins')?>">
@@ -58,15 +63,12 @@
                 <span>Մեր ադմինները</span></a>
         </li>
 
-        <!-- Divider -->
         <hr class="sidebar-divider">
 
-        <!-- Heading -->
         <div class="sidebar-heading">
             Interface
         </div>
 
-        <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                aria-expanded="true" aria-controls="collapseTwo">
@@ -81,14 +83,13 @@
             </div>
         </li>
 
-        <!-- Nav Item - Utilities Collapse Menu -->
         <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-               aria-expanded="true" aria-controls="collapseUtilities">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities2"
+               aria-expanded="true" aria-controls="collapseUtilities2">
                 <i class="fas fa-fw fa-wrench"></i>
                 <span>Ծառայություններ</span>
             </a>
-            <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+            <div id="collapseUtilities2" class="collapse" aria-labelledby="headingUtilities"
                  data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded " style="padding-left:0">
                     <a class="collapse-item" href="<?=base_url('/add_new_servicess')?>">Ստեղծել ծառայություններ</a>
@@ -97,7 +98,7 @@
             </div>
         </li>
 
-        <!-- Divider -->
+
         <hr class="sidebar-divider">
 
         <!-- Heading -->
@@ -105,12 +106,11 @@
             Addons
         </div>
 
-        <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                aria-expanded="true" aria-controls="collapsePages">
                 <i class="fas fa-fw fa-folder"></i>
-                <span>Pages</span>
+                <span>Այլ էջեր</span>
             </a>
             <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
@@ -125,24 +125,25 @@
             </div>
         </li>
 
-        <!-- Nav Item - Charts -->
         <li class="nav-item">
-            <a class="nav-link" href="charts.html">
+            <a class="nav-link" href="<?=base_url('/admin_comments')?>">
+                <i class="fas fa-fw fa-comment"></i>
+                <span>Մեկնաբանություններ</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="<?=base_url('/web_second_part')?>">
                 <i class="fas fa-fw fa-chart-area"></i>
-                <span>Charts</span></a>
+                <span>Web էջ 2-րդ բաժին</span></a>
         </li>
 
-        <!-- Nav Item - Tables -->
         <li class="nav-item">
-            <a class="nav-link" href="tables.html">
+            <a class="nav-link" href="<?=base_url('/web_third_part')?>">
                 <i class="fas fa-fw fa-table"></i>
-                <span>Tables</span></a>
+                <span>Web էջ 3-րդ բաժին</span></a>
         </li>
 
-        <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
 
-        <!-- Sidebar Toggler (Sidebar) -->
         <div class="text-center d-none d-md-inline">
             <button class="rounded-circle border-0" id="sidebarToggle"></button>
         </div>
@@ -158,18 +159,27 @@
 <script src="public/assets111/vendor/jquery/jquery.min.js"></script>
 <script src="public/assets111/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-<!-- Core plugin JavaScript-->
 <script src="public/assets111/vendor/jquery-easing/jquery.easing.min.js"></script>
 
-<!-- Custom scripts for all pages-->
+
 <script src="public/assets111/js/sb-admin-2.min.js"></script>
-<!---->
+<script src="public/js/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
 
-<!--<script src="vendor/chart.js/Chart.min.js"></script>-->
-<!---->
 
-<!--<script src="js/demo/chart-area-demo.js"></script>-->
-<!--<script src="js/demo/chart-pie-demo.js"></script>-->
+<script>
+    $(document).ready(function() {
+        tinymce.init({
+            selector: '#editor',
+            plugins: 'table lists link image code fullscreen',
+            toolbar: 'undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | table | numlist bullist | link image | code fullscreen',
+            menubar: 'file edit view insert format table tools help',
+            height: 300,
+            branding: false,
+            content_css: 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css'
+        });
+    });
+</script>
+
 </body>
 </html>
 

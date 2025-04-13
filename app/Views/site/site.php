@@ -8,105 +8,96 @@
                         </div>
                     </div>
                     <div class="row">
+                        <?php foreach ($web_second_part as $service): ?>
                         <div class="col-md-3 d-flex align-self-stretch ftco-animate">
                             <div class="media block-6 services d-block text-center">
                                 <div class="icon d-flex justify-content-center align-items-center">
-                                    <img src="<?=base_url('/images/site_images/atam.jpg')?>" style="height: 50px; width: 50px; border-radius: 50%">
+                                    <img src="<?= base_url('/images/site_images1/' . htmlspecialchars($service['image_name'])) ?>"  style="height: 50px; width: 50px; border-radius: 50%">
 <!--                                    <span class="flaticon-tooth"></span>-->
                                 </div>
                                 <div class="media-body p-2 mt-3">
-                                    <h3 class="heading">Ատամների իմպլանտացիա</h3>
-                                    <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+                                    <h3 class="heading"><?= htmlspecialchars($service->name) ?></h3>
+                                    <p><?= htmlspecialchars($service->description) ?></p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3 d-flex align-self-stretch ftco-animate">
-                            <div class="media block-6 services d-block text-center">
-                                <div class="icon d-flex justify-content-center align-items-center">
-                                    <img src="<?=base_url('/images/site_images/karies.png')?>" style="height: 50px; width: 50px; border-radius: 50%">
-<!--                                   <span class="flaticon-dental-care"></span>-->
-                                </div>
-                                <div class="media-body p-2 mt-3">
-                                    <h3 class="heading">Էնդոդոնտիկ ծառայություններ</h3>
-                                    <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 d-flex align-self-stretch ftco-animate">
-                            <div class="media block-6 services d-block text-center">
-                                <div class="icon d-flex justify-content-center align-items-center">
-                                    <img src="<?=base_url('/images/site_images/orthodontics.png')?>" style="height: 50px; width: 50px; border-radius: 50%">
-<!--                                    /*<span class="flaticon-tooth-with-braces"></span>*/-->
-                                </div>
-                                <div class="media-body p-2 mt-3">
-                                    <h3 class="heading">Quality Brackets</h3>
-                                    <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 d-flex align-self-stretch ftco-animate">
-                            <div class="media block-6 services d-block text-center">
-                                <div class="icon d-flex justify-content-center align-items-center">
-                                    <img src="<?=base_url('/images/site_images/anesthetic.webp')?>" style="height: 50px; width: 50px; border-radius: 50%">
-
-<!--                                    <span class="flaticon-anesthesia"></span>-->
-                                </div>
-                                <div class="media-body p-2 mt-3">
-                                    <h3 class="heading">Modern Anesthetic</h3>
-                                    <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
-                                </div>
-                            </div>
-                        </div>
+                        <?php endforeach; ?>
                     </div>
                 </div>
             </section>
-<section class="">
-    <div class="bg-secondary">
-        <div class="container pb-5">
-            <h2 class="wow fadeInRight text-center">Basic Services</h2>
+<section class="ftco-section ftco-services">
+    <div class="bg-secondary py-5">
+        <div class="container">
+            <h2 class="text-center text-white wow fadeInRight mb-4">Հիմնական ծառայություններ</h2>
             <div class="row justify-content-center">
-                <div class="col-sm-4 col-md-3 bg-light pt-5 pb-5 text-center mx-3" style="height: 280px">
-                    <a href="<?=base_url('/implantation')?>">
-                        <img alt="Implants" src="<?=base_url('/images/site_images/implant.jpg')?>" title="Implants" style="width: 230px; height: 150px">
-                        <h2 class="name mt-4" style="font-size:18px;">Իմպլանտացիա</h2>
-                    </a>
-                </div>
-
-                <div class="col-sm-4 col-md-3 bg-light pt-5 pb-5 text-center mx-3" style="height: 280px">
-                    <a href="<?=base_url('/ortopedia')?>">
-                        <img alt="Ortopedia" src="<?=base_url('/images/site_images/kamurjner.jpeg')?>" title="Implants" style="width: 230px; height: 150px">
-                        <h2 class="name mt-4" style="font-size:18px;">Օրթոպեդիա</h2>
-                    </a>
-                </div>
-
-                <div class="col-sm-4 col-md-3 bg-light pt-5 pb-5 text-center mx-3" style="height: 280px">
-                    <a href="">
-                        <img alt="Implants" src="<?=base_url('/images/site_images/ortodontia.jpeg')?>" title="Implants" style="width: 230px; height: 150px">
-                        <h2 class="name mt-4" style="font-size:18px;">Օրթոդոնտիա</h2>
-                    </a>
-                </div>
-
-                <div class="col-sm-4 col-md-3 bg-light pt-5 pb-5 text-center mx-3 mt-4" style="height: 280px">
-                    <a href="">
-                        <img alt="Implants" src="<?=base_url('/images/site_images/restavracia.jpg')?>" title="Implants" style="width: 230px; height: 150px">
-                        <h2 class="name mt-4" style="font-size:18px;">Ռեստավրացիա</h2>
-                    </a>
-                </div>
-
-                <div class="col-sm-4 col-md-3 bg-light pt-5 pb-5 text-center mx-3 mt-4" style="height: 280px">
-                    <a href="">
-                        <img alt="Implants" src="<?=base_url('/images/site_images/vinirn.jpeg')?>" title="Implants" style="width: 230px; height: 150px">
-                        <h2 class="name mt-4" style="font-size:18px;">Վինիրների տեղադրում</h2>
-                    </a>
-                </div>
-
-                <div class="col-sm-4 col-md-3 bg-light pt-5 pb-5 text-center mx-3 mt-4" style="height: 280px">
-                    <a href="">
-                        <img alt="Implants" src="<?=base_url('/images/site_images/higiena.jpg')?>" title="Implants" style="width: 230px; height: 150px">
-                        <h2 class="name mt-4" style="font-size:18px;">Բերանի խոռոչի հիգիենա</h2>
-                    </a>
-                </div>
+                <?php foreach ($web_third_part as $service): ?>
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                        <div class="service-card text-center bg-light p-4 shadow-sm rounded">
+                            <a href="<?= base_url('/web_third_part_services/' . $service['id']); ?>" class="service-link">
+                                <div class="image-container">
+                                    <img alt="<?= htmlspecialchars($service['name']) ?>"
+                                         src="<?= base_url('/images/site_images2/' . htmlspecialchars($service['image_name'])) ?>"
+                                         class="service-image">
+                                </div>
+                                <h3 class="service-title mt-3"><?= htmlspecialchars($service['name']) ?></h3>
+                            </a>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
             </div>
         </div>
     </div>
+
+
+<section class="map-wrap">
+    <div class="container-fluid mt-3">
+      <div class="row">
+          <div class="col-md-12 col-sm-6">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4365.996433755122!2d44.99671898985269!3d41.18241383118108!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x404140ffe9cca5a3%3A0xc4ceb5d3313c4759!2sDental%20Clinic%20Mushegh%20Amiraghyan!5e0!3m2!1sru!2sam!4v1737615911096!5m2!1sru!2sam"
+                      width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+      </div>
+    </div>
+
 </section>
+    <!-- 🌟 Additional Styling -->
+    <style>
+        /* Card Container */
+        .service-card {
+            height: 100%;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Image Styling */
+        .image-container {
+            overflow: hidden;
+            border-radius: 8px;
+        }
+        .service-image {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .service-card:hover .service-image {
+            transform: scale(1.05);
+        }
+
+        /* Service Title */
+        .service-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Service Link */
+        .service-link {
+            text-decoration: none;
+            display: block;
+        }
+    </style>

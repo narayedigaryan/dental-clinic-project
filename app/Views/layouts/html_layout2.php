@@ -27,14 +27,30 @@
 <?= $this->content;?>
 
 <!-- Bootstrap core JavaScript-->
-<script src="../../../../public/assets111/vendor/jquery/jquery.min.js"></script>
-<script src="../../../../public/assets111/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="public/assets111/vendor/jquery/jquery.min.js"></script>
+<script src="public/assets111/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 <!-- Core plugin JavaScript-->
-<script src="../../../../public/assets111/vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="public/assets111/vendor/jquery-easing/jquery.easing.min.js"></script>
 
 <!-- Custom scripts for all pages-->
-<script src="../../../../public/assets111/js/sb-admin-2.min.js"></script>
+<script src="public/assets111/js/sb-admin-2.min.js"></script>
+<script src="public/js/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
+
+
+<script>
+    $(document).ready(function() {
+        tinymce.init({
+            selector: '#editor',
+            plugins: 'table lists link image code fullscreen',
+            toolbar: 'undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | table | numlist bullist | link image | code fullscreen',
+            menubar: 'file edit view insert format table tools help',
+            height: 300,
+            branding: false,
+            content_css: 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css'
+        });
+    });
+</script>
 
 </body>
 

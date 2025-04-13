@@ -11,8 +11,8 @@
             </div>
 
             <div class="mb-3">
-                <label for="description" class="form-label">Ծառայության նկարագրությունը</label>
-                <textarea class="form-control" id="description" name="description" rows="4" required></textarea>
+                <label for="editor" class="form-label">Ծառայության նկարագրությունը</label>
+                <textarea class="form-control" id="editor" name="description" rows="4"></textarea>
             </div>
 
             <div class="mb-3">

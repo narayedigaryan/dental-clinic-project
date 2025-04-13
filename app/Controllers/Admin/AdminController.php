@@ -5,7 +5,9 @@ namespace App\Controllers\Admin;
 use App\Controllers\BaseControllers;
 use App\Models\admins;
 use App\Models\images_background;
+use App\Models\patients;
 use App\Models\treatments;
+use App\Models\web_second_part;
 use core\Pagination;
 use Illuminate\Database\Capsule\Manager as Capsule;
 use Illuminate\Support\Facades\DB;
@@ -21,7 +23,7 @@ class AdminController extends BaseControllers
 //dump($users);
        // $users2 = admins::all();
       //  dump($users2);
-        return view('admin/includes/register', ['title' => 'Register'], 'layouts/html_layout');
+        return view('admin/includes/register', ['title' => 'Register'], 'layouts/default');
 
     }
 
@@ -121,38 +123,38 @@ class AdminController extends BaseControllers
             ['title' => 'admins',
                 'admins' => $admins,
                 'pagination' => $pagination,],
-            'layouts/html_layout2');
+            'layouts/default');
     }
     public function add_new_services()
     {
-        return view('admin/includes/add_new_servicess', ['title' => 'Add new services page'],'layouts/html_layout2');
+        return view('admin/includes/add_new_servicess', ['title' => 'Add new services page'],'layouts/default');
     }
 
     public function store_services()
     {
         $model_services = new treatments(); // Use the treatments model
-        $model_services->loadData();
-        if (!$model_services->validate()) {
-            session()->setFlash('error', 'validation error');
-            session()->set('form_errors', $model_services->getErrors());
-            session()->set('form_data', $model_services->attributes);
+        $model_services->loadData();  if (!$model_services->validate()) {
+        // Handle validation errors
+        session()->setFlash('error', 'Validation error');
+        session()->set('form_errors', $model_services->getErrors());
+        session()->set('form_data', $model_services->attributes);
+    } else {
+
+        if ($model_services->save()) {
+            session()->setFlash('success', 'Service added successfully');
+        } else {
+            session()->setFlash('error', 'Failed to add service');
         }
-        else {
+    }
 
-            if($model_services->save()){
-                session()->setFlash('success', 'Registration successful');
-            }else{
-                session()->setFlash('error', 'Registration failed');
-            }
+        response()->redirect(base_url('/admin'));
+    }
 
-        }
 
-        response()->redirect('');
-     }
     public function background_images()
     {
         $images = Capsule::table('images_background')->get();
-        return view('admin/includes/background_images', ['title' => 'Background images'],'layouts/html_layout2');
+        return view('admin/includes/background_images', ['title' => 'Background images'],'layouts/default');
     }
     public function store_images_background()
     {
@@ -167,6 +169,7 @@ class AdminController extends BaseControllers
     public function extracted(images_background $model_images): void
     {
         $data = request()->getData();
+        $fileName = '';
         // Handle file upload
         if (isset($data['image_name']) && request()->hasFile('image')) {
             $file = request()->file('image');
@@ -174,6 +177,11 @@ class AdminController extends BaseControllers
             // Validate the file (Optional: Set validation rules)
             if ($file['error'] === UPLOAD_ERR_OK) {
                 // Get the file extension
+//                $originalName = pathinfo($file['image_name'], PATHINFO_FILENAME);
+//                $extension = pathinfo($file['image_name'], PATHINFO_EXTENSION);
+//                $sanitizedName = preg_replace('/[^A-Za-z0-9\-]/', '_', $originalName);
+//                $fileName = $sanitizedName . '.' . $extension;
+
                 $extension = pathinfo($file['full_path'], PATHINFO_EXTENSION);
 
                 // Generate a unique name for the image
@@ -182,6 +190,7 @@ class AdminController extends BaseControllers
                 // Define the upload path (public/images/background)
                 $uploadPath = $this->public_path('images/background_images');
                 move_uploaded_file($file['tmp_name'], $uploadPath . '/' . $fileName);
+
             }
         }
 
@@ -192,7 +201,7 @@ class AdminController extends BaseControllers
             session()->set('form_errors', $model_images->getErrors());
             session()->set('form_data', $model_images->attributes);
         } else {
-
+            $model_images->attributes['img_path'] = $fileName;
             if ($model_images->save()) {
                 session()->setFlash('success', 'Service added successfully');
             } else {
@@ -203,10 +212,13 @@ class AdminController extends BaseControllers
         response()->redirect('');
     }
 
+
+
+
     public function public_path(string $path = ''): string
     {
 
-       // $publicDir = rtrim($_SERVER['DOCUMENT_ROOT'], DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . 'public';
+        // $publicDir = rtrim($_SERVER['DOCUMENT_ROOT'], DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . 'public';
 
         $publicDir = rtrim(WWW, DIRECTORY_SEPARATOR);
         if ($path) {

@@ -57,7 +57,6 @@ class Router
     {
         $path = $this->request->getPath();
         $route = $this->matchRoute($path);
-
         if (false === $route) {
             abort();
         }

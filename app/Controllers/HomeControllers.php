@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Controllers;
+use App\Models\images_background;
+use App\Models\web_second_part;
+use App\Models\web_third_part;
 use core\Request;
 use App\Models\treatments;
 use core\View;
@@ -55,39 +58,39 @@ class HomeControllers extends BaseControllers
 //            'layouts/html_layout'
 //        );
 //    }
-    public function update(Request $request, $id)
+    public function update($params)
     {
-        $rules = [
-            'name' => 'required|string|max:255',
-            'description' => 'required|string',
-            'price_1' => 'required|numeric',
-            'price_2' => 'numeric',
-        ];
+        $request = new treatments(); // Use the treatments model
+        $request->loadData();
+//        $rules = [
+//            'name' => 'required|string|max:255',
+//            'description' => 'required|string',
+//            'price_1' => 'required|numeric',
+//            'price_2' => 'numeric',
+//        ];
 
-        // Collect data from the request
-        $data = $request->all(); // Use the Request's `all` method
-
+        $data = $request->attributes;
         // Use the model's validate method
         $treatment = new treatments();
-        if (!$treatment->validate($data, $rules)) {
-            // Handle validation errors
-            $_SESSION['errors'] = $treatment->errors; // Store errors in session
-            $_SESSION['old_input'] = $data;           // Store old input in session
-            header("Location: " . $_SERVER['HTTP_REFERER']); // Redirect back
-            exit;
-        }
+//        if (!$treatment->validate($data, $rules)) {
+          //  // Handle validation errors
+//            $_SESSION['errors'] = $treatment->errors; // Store errors in session
+//            $_SESSION['old_input'] = $data;           // Store old input in session
+//            header("Location: " . $_SERVER['HTTP_REFERER']); // Redirect back
+//            exit;
+//        }
 
         // Find the treatment and update it
+        $id = $params['id'];
         $existingTreatment = treatments::query()->findOrFail($id);
         $existingTreatment->update($data);
-
         // Redirect with success message
         $_SESSION['success'] = 'Treatment updated successfully!';
         header("Location: " . base_url('/admin')); // Redirect to the admin page
         exit;
     }
 
-//buhfeheuhfuehfue
+
 
     public function destroy($params)
     {
@@ -103,7 +106,15 @@ class HomeControllers extends BaseControllers
     }
     public function site()
     {
-        return view('site/site', ['title' => 'Site page'],'layouts/site_layout');
+        $background_images = images_background::query()->get();
+        $web_second_part = web_second_part::query()->get();
+        $web_third_part = web_third_part::query()->get();
+        return view('site/site',
+            ['title' => 'Site page',
+            'background_images' => $background_images,
+            'web_second_part' => $web_second_part,
+                'web_third_part' => $web_third_part],
+            'layouts/site_layout');
 
     }
 

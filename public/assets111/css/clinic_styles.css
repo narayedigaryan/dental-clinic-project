@@ -1,0 +1,17 @@
+.hover-effect {
+    transition: transform 0.3s ease-in-out; /* Smooth transition */
+}
+
+.hover-effect:hover {
+    transform: scale(1.1); /* Slightly zoom in on hover */
+}
+
+.navbar-nav .nav-item .nav-link {
+    color: white !important;
+}
+
+
+.navbar-nav .nav-item.active .nav-link {
+    color: #007bff !important; /* Blue color for active item */
+    font-weight: bold;
+}

@@ -98,7 +98,6 @@ function check_auth():bool
 function send_mail(array $to, string $subject, string $tpl, array $data = [], array $attachments = []): bool
 {
     $mail = new PHPMailer(true);
-
     try{
         $mail->SMTPDebug = MAIL_SETTINGS['debug'];
         $mail->isSMTP();

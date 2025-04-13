@@ -2,16 +2,16 @@
     <table class="table table-bordered bg-light mt-5">
         <thead>
         <tr>
-            <th>ID</th>
+            <th>N</th>
             <th>First Name</th>
             <th>Last Name</th>
             <th>Email</th>
         </tr>
         </thead>
         <tbody>
-        <?php foreach ($admins as $admin): ?>
+        <?php foreach ($admins as $key=>$admin): ?>
             <tr>
-                <td><?= htmlspecialchars($admin['id']) ?></td>
+                <td><?= $key+1 ?></td>
                 <td><?= htmlspecialchars($admin['fname']) ?></td>
                 <td><?= htmlspecialchars($admin['lname']) ?></td>
                 <td><?= htmlspecialchars($admin['email']) ?></td>
@@ -20,4 +20,4 @@
         </tbody>
     </table>
 </div>
-<?= $pagination; ?>
+<div style="margin-left: 250px"> <?= $pagination; ?></div>
